@@ -6,11 +6,11 @@ import './Block2.scss';
 
 const Block2 = () => {
     return (
-        <div className='blk_2 my-48 text-center container mx-auto px-4 grid gap-12 ' >
+        <div className='blk_2 my-48 text-center container mx-auto px-4 grid gap-12'>
 
             <div>
-                <div className='w-1/2 mx-auto '>
-                    <h1 className='font-bold text-3xl leading-normal'>Not just for Content Creators Build for Consumers & Organizers</h1>
+                <div className='xl:w-1/2 mx-auto '>
+                    <h1 className='font-bold text-3xl md:text-3xl leading-normal'>Not just for Content Creators Build for Consumers & Organizers</h1>
                 </div>
                 <div>
                     <CreaterBlk />
@@ -19,14 +19,14 @@ const Block2 = () => {
 
             <div className='blk_3 grid gap-6'>
                 <div className='flex flex-row p-8 justify-between '>
-                    <div className='w-[20%] grid gap-4'>
+                    <div className='w-[200px] grid gap-4 '>
                         <h1 className='font-bold text-xl text-start'>For User</h1>
 
                         <p className='text-start'>Lorem ipsum dolor sit amet, consectetur ad ip isc ing elit. Con dimen tum nec faucibus justo, ac quam.</p>
 
                         <img src={user} alt="" />
                     </div>
-                    <div className='w-[60%] grid grid-cols-3 gap-4 relative'>
+                    <div className='w-[700px] grid grid-cols-3 gap-4 relative'>
                         {
 
                             Usercard.map((items) => {
@@ -50,7 +50,7 @@ const Block2 = () => {
                 </div>
                 <div className='flex flex-row p-8 justify-between '>
 
-                    <div className='w-[60%] grid grid-cols-3 gap-4 relative'>
+                    <div className='w-[700px] grid grid-cols-3 gap-4 relative'>
                         {
 
                             Creatercard.map((items) => {
@@ -71,7 +71,7 @@ const Block2 = () => {
                             })
                         }
                     </div>
-                    <div className='w-[20%] grid gap-4'>
+                    <div className='w-[200px] grid gap-4'>
                         <h1 className='font-bold text-xl text-start'>For Creater</h1>
 
                         <p className='text-start'>Lorem ipsum dolor sit amet, consectetur ad ip isc ing elit. Con dimen tum nec faucibus justo, ac quam.</p>
@@ -91,7 +91,7 @@ export default Block2;
 
 const CreaterBlk = () => {
     return (
-        <div className='flex flex-row mt-24'>
+        <div className='flex flex-row mt-24 xl:flex-cols'>
             {
                 CreaterData.map((item) => {
                     return (
