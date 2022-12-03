@@ -4,7 +4,7 @@ import { CardsData } from '../Data/cardsData'
 // import Web3 from "web3";
 import { Link } from 'react-router-dom';
 
-function BlockNav() {
+function BlockNav(props) {
     //     const [address, setAddress] = useState([]);
 
     //   async function requiredWallet() {
@@ -34,34 +34,42 @@ function BlockNav() {
                     <div className='logo basis-1/4'>
                         <h3 className='text-pink '>_Staple</h3>
                     </div>
-                    {/* {
-                    address ? (
-                        null
-                    ):(<div>
-                            <ul>
-                                <li>Home</li>
-                                <li>Write</li>
-                                <li>Explore</li>
-                                <li>staple</li>
-                             
-                            </ul>
-                        </div>)
-                } */}
+
 
                     <div className='menus flex space-x-6'>
-                        <div className='hidden md:flex space-x-6 items-center'>
+
+                        {props.appState.isLoggedIn === true ? (
+
+                            <div className='hidden md:flex space-x-6 items-center'>
+                                <Link to="#">Home</Link>
+                                <Link to="#">Write</Link>
+                                <Link to="#">Explore</Link>
+                                <Link to="#">staple</Link>
+                            </div>
+
+                        ) : <div className='hidden md:flex space-x-6 items-center'>
+
+
+
                             <Link to="#">
                                 How we build
                             </Link>
-                            
+
                             <Link to="#">
                                 Refer & Earn
                             </Link>
-                        </div>
-                        <button className='bg-orange-400 p-2 w-25 h-10 rounded-sm'
-                        //  onClick={requiredWallet}
+                        </div>}
+
+
+                        <button
+                            className="bg-orange-400 p-2 w-25 h-10 rounded-sm"
+                            onClick={props.ConnectWallet}
                         >
-                            Connect Wallet
+                            {props.appState.account !== "" ? (
+                                <>{props.appState.account.slice(0, 4) + ".." + props.appState.account.slice(-4)}</>
+                            ) : (
+                                <>Connect Wallet</>
+                            )}
                         </button>
 
                     </div>
@@ -74,8 +82,6 @@ function BlockNav() {
                     <button className='bg-orange-400 p-3 rounded-sm w-64 mb-3'>Early Bird Signup</button><br />
                     <span className='text-md '>Get 100 Staple Tokens on Launch*</span>
                 </div>
-
-
             </div>
 
             <CardsBlock />
