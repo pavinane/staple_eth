@@ -36,12 +36,17 @@ module.exports = {
       backgroundColor:{
         "bg-orange-400":"#FF7449",
         "bg-pink-400":"#FFF2ED",
+        "bg-pink-300":"#FFF1ED",
         "bg-orange-300":"#FFDBA3"
       },
     
       fontFamily: {
         sans: ['Graphik', 'sans-serif'],
         serif: ['Merriweather', 'serif'],
+      },
+      container: {
+        center: true,
+        
       },
     }
   
