@@ -20,7 +20,7 @@ function LandingPage(props){
       <Platform/>
       <Footer />
     </div>
-  )
+  );
 }
 
 function App() {
@@ -29,7 +29,6 @@ function App() {
     account: "",
     isMetamask: true,
   });
-
 
   const ConnectWallet = () => {
     console.log("Connect Wallet", window.ethereum);
@@ -90,7 +89,7 @@ function App() {
 
   return (
     <div className="App ">
-        <BrowserRouter>
+      <BrowserRouter>
         <Routes>
           <Route path="/" element={<LandingPage
            ConnectWallet={ConnectWallet}
@@ -99,8 +98,7 @@ function App() {
           />} />
           <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
-        </BrowserRouter>
-  
+      </BrowserRouter>
     </div>
   );
 }
