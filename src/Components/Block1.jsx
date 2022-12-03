@@ -5,7 +5,7 @@ import { CardsData } from "../Data/cardsData";
 import { Link } from "react-router-dom";
 
 function BlockNav(props) {
-    
+
     return (
 
         <div className='relative'>
@@ -16,48 +16,40 @@ function BlockNav(props) {
                     <div className='logo basis-1/4'>
                         <h3 className='text-pink '>_Staple</h3>
                     </div>
-                    {/* {
-                    address ? (
-                        null
-                    ):(<div>
-                            <ul>
-                                <li>Home</li>
-                                <li>Write</li>
-                                <li>Explore</li>
-                                <li>staple</li>
-                             
-                            </ul>
-                        </div>)
-                } */}
+
 
                     <div className='menus flex space-x-6'>
 
 
-                    {props.appState.isLoggedIn === true ? (
-            <>
-              <div>
-                <ul>
-                  <li>Home</li>
-                  <li>Write</li>
-                  <li>Explore</li>
-                  <li>staple</li>
-                </ul>
-              </div>
-            </>
-          ) : <div className='hidden md:flex space-x-6 items-center'>
+                        {props.appState.isLoggedIn === true ? (
+
+                            <div className='hidden md:flex space-x-6 items-center' >
+
+                                <Link to="#">Home</Link>
+                                <Link to="#">Write</Link>
+                                <Link to="#">Explore</Link>
+                                <Link to="#">staple</Link>
+                            </div>
+
+                        ) : <div className='hidden md:flex space-x-6 items-center'>
                             <Link to="#">
                                 How we build
                             </Link>
-                            
+
                             <Link to="#">
                                 Refer & Earn
                             </Link>
                         </div>}
-                        
-                        <button className='bg-orange-400 p-2 w-25 h-10 rounded-sm'
-                        //  onClick={requiredWallet}
+
+                        <button
+                            className="bg-orange-400 p-2 w-25 h-10 rounded-sm"
+                            onClick={props.ConnectWallet}
                         >
-                            Connect Wallet
+                            {props.appState.account !== "" ? (
+                                <>{props.appState.account.slice(0, 4) + ".." + props.appState.account.slice(-4)}</>
+                            ) : (
+                                <>Connect Wallet</>
+                            )}
                         </button>
 
                     </div>
@@ -74,32 +66,32 @@ function BlockNav(props) {
 
             </div>
 
-      <CardsBlock />
-    </div>
-  );
+            <CardsBlock />
+        </div>
+    );
 }
 
 const CardsBlock = () => {
-  return (
-    <div className="crds-blk flex">
-      <div className="crds-blk shadow-lg shadow-indigo-500/40  xl:w-[1000px] md:w-[1000px]  m-0 m-auto h-46 bg-white rounded-md p-6 flex flex-col  xl:flex-row xl:space-x-6 md:flex-row md:space-x-6 ">
-        {CardsData.map((items) => {
-          return (
-            <div className="crds flex-auto flex flex-row">
-              <div className="flex-none w-14  bg-orange-300 h-14 rounded-full p-3">
-                <img src={items.img} alt="" />
-              </div>
-              &nbsp;&nbsp;&nbsp;
-              <div className="flex-auto">
-                <h1 className="font-bold leading-10">{items.name}</h1>
-                <p>{items.desc}</p>
-              </div>
+    return (
+        <div className="crds-blk flex">
+            <div className="crds-blk shadow-lg shadow-indigo-500/40  xl:w-[1000px] md:w-[1000px]  m-0 m-auto h-46 bg-white rounded-md p-6 flex flex-col  xl:flex-row xl:space-x-6 md:flex-row md:space-x-6 ">
+                {CardsData.map((items) => {
+                    return (
+                        <div className="crds flex-auto flex flex-row">
+                            <div className="flex-none w-14  bg-orange-300 h-14 rounded-full p-3">
+                                <img src={items.img} alt="" />
+                            </div>
+                            &nbsp;&nbsp;&nbsp;
+                            <div className="flex-auto">
+                                <h1 className="font-bold leading-10">{items.name}</h1>
+                                <p>{items.desc}</p>
+                            </div>
+                        </div>
+                    );
+                })}
             </div>
-          );
-        })}
-      </div>
-    </div>
-  );
+        </div>
+    );
 };
 
 export default BlockNav;
