@@ -1,0 +1,30 @@
+.block-content{
+    background-color: #FFF2ED;
+    height: 650px;
+    font-family: 'Inter', sans-serif;
+    .menus{
+        ul{
+            display: flex;
+            align-items: center;
+            li{
+                list-style-type: none;
+                float: left;
+                padding: 20px;
+            }
+        }
+    }
+}
+
+.crds-blk{
+    position: relative;
+    .crds-blk{
+        position: absolute;
+        top: -100px;
+
+        left: 0; 
+        right: 0; 
+        margin-left: auto; 
+        margin-right: auto; 
+        // width: 100px;
+    }
+}
