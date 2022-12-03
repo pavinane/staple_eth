@@ -5,6 +5,7 @@ import Block2 from './Components/Block2/Block2';
 import Platform from './Components/Block3/Platform';
 import Footer from './Components/Footer/Footer';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Dashboard from './Components/Dashboard/Dashboard';
 
 
 function LandingPage(){
@@ -24,6 +25,7 @@ function App() {
         <BrowserRouter>
         <Routes>
           <Route path="/" element={<LandingPage />} />
+          <Route path="/dashboard" element={<Dashboard />} />
         </Routes>
         </BrowserRouter>
   
